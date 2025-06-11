@@ -68,7 +68,15 @@ app.get("/listings/:id/edit", async (req, res) => {
 // Update Route 
 app.put("/listings/:id", async (req, res) => {
   let {id} = req.params;
-  await Listing.findByIdAndUpdate(id, {...req.body.listing});
+  const updatedData = req.body.listing;
+
+// Optional safety: if image.url is present, assign as nested object
+if (updatedData.image && typeof updatedData.image === 'object' && updatedData.image.url) {
+  updatedData.image = { url: updatedData.image.url };
+}
+
+await Listing.findByIdAndUpdate(id, updatedData);
+
   res.redirect(`/listings/${id}`);
 });
 

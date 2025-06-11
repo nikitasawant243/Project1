@@ -11,7 +11,8 @@ const listingSchema = new Schema({
         filename: String,
         url: {
             type: String,
-            default: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e...",
+            default: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60",
+
             set: (v) =>
                 v === ""
                     ? "https://images.unsplash.com/photo-1507525428034-b723cf961d3e..."
