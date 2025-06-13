@@ -62,7 +62,7 @@ body {
 
 /* Cards */
 
-.card{
+.listing-card{
     border: none !important;
     margin-bottom: 2rem;
 }
@@ -113,6 +113,17 @@ body {
    
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ ul li {
+      margin-bottom: 0 !important; /* reduce space between items */
+      padding: 0;
+      line-height: 1;
+    }
+
 .btns{
     display: flex;
 }
@@ -120,4 +131,36 @@ body {
 .show-card{
     padding-left: 0;
     padding-right: 0;
+}
+
+ .star-rating {
+      direction: rtl;
+      display: inline-flex;
+      font-size: 2rem;
+      gap: 10px;
+    }
+
+    .star-rating input[type="radio"] {
+      display: none;
+    }
+
+    .star-rating label {
+      color: #ccc;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .star-rating input[type="radio"]:checked ~ label {
+      color: gold;
+    }
+
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: gold;
+    }
+
+    /* review */
+.review-li{
+    margin-bottom: 20px !important;
+    font-size: 1.1rem;
 }
