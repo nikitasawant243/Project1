@@ -1,0 +1,32 @@
+<% if(success && success.length){ %>
+<div class="alert alert-success alert-dismissible fade show col-6 offset-3 mt-3 flash-msg" role="alert">
+    <%= success %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+
+
+<% if(error && error.length){ %>
+<div class="alert alert-danger alert-dismissible fade show col-6 offset-3 mt-3 flash-msg" role="alert">
+    <%= error %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<% } %>
+
+<script>
+  // Function to auto-dismiss flash messages
+  function autoDismissFlash(selector) {
+    const flashMsg = document.querySelector(selector);
+    if (flashMsg) {
+      setTimeout(() => {
+        flashMsg.style.transition = "opacity 0.5s ease-out";
+        flashMsg.style.opacity = 0;
+        setTimeout(() => flashMsg.remove(), 500); // Optional: remove from DOM
+      }, 3000); // Hide after 3 seconds
+    }
+  }
+
+  // Apply to both success and error messages
+  autoDismissFlash('.alert-success');
+  autoDismissFlash('.alert-danger');
+</script>
